@@ -4,5 +4,7 @@
     "windows_terminal_shell": "win-git-bash",
     "save_workspace": "never",
     "load_workspace": false,
-    "always_save_history": false
+    "always_save_history": false,
+    "jobs_tab_visibility": "shown",
+    "default_encoding": "UTF-8"
 }

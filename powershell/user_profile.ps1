@@ -3,9 +3,9 @@ oh-my-posh init pwsh | Invoke-Expression
 
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/amro.omp.json" | Invoke-Expression
 
-Import-Module Terminal-icons
-# Set   
 
+# Set   
+Import-Module Terminal-icons
 Import-Module PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
 Set-PSReadLineOption -PredictionViewStyle Listview

@@ -51,6 +51,7 @@ Plug 'hrsh7th/cmp-path'
 Plug 'f3fora/cmp-spell'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 call plug#end()
 
 colorscheme gruvbox
@@ -95,9 +96,9 @@ autocmd Filetype Rmd inoremap <buffer>  ,m ## <++><enter>
 " Rmarkdown 
 
 autocmd Filetype Rmd map <F7> :!Rscript -e "rmarkdown::render('%')"<CR>
-autocmd Filetype Rmd inoremap <buffer> ,ow ---<enter>title: <++><enter>author: <++><enter>bibliography: 'E:\\Zotero\\m.bib'<enter>output:<enter><tab> word_document:<enter><tab>reference_docx: "C:\\Users\\wujac\\Documents\\template\\template.docx"<enter><left><left><left><left><left><left><left><left><left><enter>---<enter><enter><left><left><left><++>
+autocmd Filetype Rmd inoremap <buffer> ,ow ---<enter>title: <++><enter>author: <++><enter>bibliography: 'E:\\Zotero\\m.bib'<enter>output:<enter><tab> word_document:<enter><tab>reference_docx: "C:\\Users\\zamen\\Documents\\template\\template.docx"<enter><left><left><left><left><left><left><left><left><left><enter>---<enter><enter><left><left><left><++>
 autocmd Filetype Rmd inoremap <buffer> ,op ---<enter>title: <++><enter>author: <++><enter>bibliography: 'E:\\Zotero\\m.bib'<enter>documentclass: ctexart<enter>output:<enter><tab>rticles::ctex<enter><left><left><left><left><enter>---<enter><enter><++>
-autocmd Filetype Rmd inoremap <buffer> ,ob ---<enter>title: <++><enter>author: <++><enter>bibliography: 'E:\\Zotero\\m.bib'<enter>output:<enter><tab> powerpoint_presentation:<enter><tab>reference_doc: "C:\\Users\\wujac\\Documents\\template\\template.pptx"<enter><left><left><left><left><left><left><left><left><enter>---<enter><enter><left><left><left><left><left><left>## <++>
+autocmd Filetype Rmd inoremap <buffer> ,ob ---<enter>title: <++><enter>author: <++><enter>bibliography: 'E:\\Zotero\\m.bib'<enter>output:<enter><tab> powerpoint_presentation:<enter><tab>reference_doc: "C:\\Users\\zamen\\Documents\\template\\template.pptx"<enter><left><left><left><left><left><left><left><left><enter>---<enter><enter><left><left><left><left><left><left>## <++>
 
 let g:table_mode_corner_corner='+'
 let g:table_mode_header_fillchar='='
