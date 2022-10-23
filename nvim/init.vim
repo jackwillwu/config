@@ -12,7 +12,7 @@ set nu
 set smartcase
 set noswapfile
 set nobackup
-set undodir=~/.config/nivm/undofile
+set undodir=~/.config/nvim/undofile
 set undofile
 set incsearch
 set scrolloff=8
