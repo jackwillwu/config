@@ -83,6 +83,8 @@ nnoremap <leader>s :w<CR>
 inoremap <leader>a <- 
 inoremap <C-z> <C-n>
 map <SPACE> <Leader>
+
+
 " Rmarkdown 设置
 autocmd BufRead,BufNewFile *.markdown,*.md set filetype=Rmd
 autocmd Filetype Rmd  inoremap <buffer> ,f <Esc>/<++><CR>:nohlsearch<CR>"_c4l
