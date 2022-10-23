@@ -1,0 +1,12 @@
+---
+title: title 
+author: jackwill
+bibliography: 'E:\\Zotero\\m.bib'
+output:
+     slidy_presentation
+---
+
+## hello wolrd
+
+- hello
+- hello
