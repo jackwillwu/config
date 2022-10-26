@@ -20,7 +20,7 @@ set noshowmode
 set nocompatible
 filetype plugin on
 syntax on
-set conceallevel=2
+set conceallevel=1
 
 " 插件
 call plug#begin('C:\Users\zamen\.config\nvim\plug')
@@ -41,6 +41,9 @@ Plug 'rafaqz/citation.vim'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 Plug 'vimwiki/vimwiki'
+Plug 'lervag/vimtex'
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 
@@ -147,10 +150,10 @@ nnoremap <silent>[unite]cs :<C-u>Unite  -default-action=yank  citation/key:<C-R>
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 "  vim markdown config
-let g:vim_markdown_folding_disabled = 1
+"  let g:tex_conceal = ""
 let g:vim_markdown_math = 1
+let g:vim_markdown_folding_disabled = 1
 set concealcursor=""
-let g:vim_markdown_no_extensions_in_markdown = 1
 " Ensure files are read as what I want:
 
 map <F9> :!pandoc --pdf-engine=xelatex % -o %:r.pdf -V mainfont="SimSun"<CR>
@@ -159,3 +162,62 @@ map <F12> :!pandoc % -o %:r.html<CR>
 
 let g:vimwiki_list = [{'path': 'E:/notes',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
+let g:tex_flavor='latex'
+let g:vimtex_view_method='SumatraPDF'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+
+"LaTeX配置
+let g:vimtex_texcount_custom_arg=' -ch -total'
+"映射VimtexCountWords！\lw 在命令模式下enter此命令可统计中英文字符的个数
+au FileType tex map <buffer> <silent>  <leader>lw :VimtexCountWords!  <CR><CR>
+"这里是LaTeX编译引擎的设置，这里默认LaTeX编译方式为-pdf(pdfLaTeX),
+"vimtex提供了magic comments来为文件设置编译方式
+"例如，我在tex文件开头输入 % !TEX program = xelatex   即指定-xelatex （xelatex）编译文件
+let g:vimtex_compiler_latexmk_engines = {
+    \ '_'                : '-pdf',
+    \ 'pdflatex'         : '-pdf',
+    \ 'dvipdfex'         : '-pdfdvi',
+    \ 'lualatex'         : '-lualatex',
+    \ 'xelatex'          : '-xelatex',
+    \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
+    \ 'context (luatex)' : '-pdf -pdflatex=context',
+    \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
+    \}
+"这里是设置latexmk工具的可选参数
+let g:vimtex_compiler_latexmk = {
+    \ 'build_dir' : '',
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \ 'hooks' : [],
+    \ 'options' : [
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-shell-escape',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
+
+" 阅读器相关的配置 包含正反向查找功能 仅供参考
+let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+let g:vimtex_view_general_options
+     \ = ' -reuse-instance -forward-search @tex @line @pdf'
+     \ . ' -inverse-search "' . 'cmd /c start /min \"\" '  . exepath(v:progpath)
+     \ . ' -v --not-a-term -T dumb -c  \"VimtexInverseSearch %l ''%f''\""' "for vim/gvim
+
+
+
+"编译过程中忽略警告信息
+let g:vimtex_quickfix_open_on_warning=0
+
+" vimtex
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+let g:UltiSnipsSnippetDirectory = ['C:\Users\zamen\.config\nvim\Ultisnips']
