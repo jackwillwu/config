@@ -21,6 +21,7 @@ set nocompatible
 filetype plugin on
 syntax on
 set conceallevel=1
+set spell spelllang=en_us
 
 " 插件
 call plug#begin('C:\Users\zamen\.config\nvim\plug')
