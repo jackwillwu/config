@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "coc-tsserver": ">=1.11.12",
-    "coc-pyright": ">=1.1.272",
-    "coc-r-lsp": ">=1.2.1"
-  }
-}
